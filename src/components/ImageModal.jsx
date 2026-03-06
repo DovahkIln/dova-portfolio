@@ -1,6 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
 import "./ImageModal.css";
 
+// Helper to prefix asset paths with Vite's base URL (for GitHub Pages)
+const BASE = import.meta.env.BASE_URL;
+const assetUrl = (path) => {
+    if (!path) return path;
+    if (path.startsWith(BASE)) return path;
+    if (path.startsWith('/')) return `${BASE}${path.slice(1)}`;
+    return path;
+};
+
 export default function ImageModal({ item, onClose }) {
     // Collect all media: images + gif + video
     const allMedia = [];
@@ -63,7 +72,7 @@ export default function ImageModal({ item, onClose }) {
                     {current.type === "video" ? (
                         <video
                             className="modal-video"
-                            src={current.src}
+                            src={assetUrl(current.src)}
                             controls
                             autoPlay
                             loop
@@ -73,13 +82,13 @@ export default function ImageModal({ item, onClose }) {
                         <div className="modal-image-container">
                             <img
                                 className="modal-image-bg"
-                                src={current.src}
+                                src={assetUrl(current.src)}
                                 alt=""
                                 aria-hidden="true"
                             />
                             <img
                                 className="modal-image"
-                                src={current.src}
+                                src={assetUrl(current.src)}
                                 alt={`${item.title} — ${currentIndex + 1}`}
                             />
                         </div>
@@ -97,7 +106,7 @@ export default function ImageModal({ item, onClose }) {
                             <img
                                 key={i}
                                 className={`modal-thumb ${i === currentIndex ? "active" : ""}`}
-                                src={media.type === "video" ? item.images[0] : media.src}
+                                src={assetUrl(media.type === "video" ? item.images[0] : media.src)}
                                 alt={`Miniatura ${i + 1}`}
                                 onClick={() => setCurrentIndex(i)}
                             />

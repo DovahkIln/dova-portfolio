@@ -63,7 +63,7 @@ export default function Footer() {
                         rel="noopener noreferrer"
                     >
                         <img
-                            src="/Discord-Symbol-Blurple.svg"
+                            src={`${import.meta.env.BASE_URL}Discord-Symbol-Blurple.svg`}
                             alt="Discord Logo"
                             style={{ width: "22px", height: "22px" }}
                         />

@@ -1,6 +1,17 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import "./Gallery.css";
 
+// Helper to prefix asset paths with Vite's base URL (for GitHub Pages)
+const BASE = import.meta.env.BASE_URL;
+const assetUrl = (path) => {
+    if (!path) return path;
+    // Avoid double-prefixing
+    if (path.startsWith(BASE)) return path;
+    // Only prefix absolute paths
+    if (path.startsWith('/')) return `${BASE}${path.slice(1)}`;
+    return path;
+};
+
 export default function Gallery({ onOpenModal }) {
     const [portfolioData, setPortfolioData] = useState([]);
     const [tags, setTags] = useState(["Todos"]);
@@ -12,7 +23,7 @@ export default function Gallery({ onOpenModal }) {
     useEffect(() => {
         const fetchPortfolio = async () => {
             try {
-                const response = await fetch('/portfolio.json');
+                const response = await fetch(`${import.meta.env.BASE_URL}portfolio.json`);
                 if (!response.ok) throw new Error("Failed to fetch");
 
                 const data = await response.json();
@@ -183,13 +194,13 @@ export default function Gallery({ onOpenModal }) {
                             >
                                 {isVideoCover ? (
                                     <>
-                                        <video className="gallery__block-image-bg" src={coverUrl} aria-hidden="true" muted loop playsInline autoPlay />
-                                        <video className="gallery__block-image" src={coverUrl} muted loop playsInline autoPlay />
+                                        <video className="gallery__block-image-bg" src={assetUrl(coverUrl)} aria-hidden="true" muted loop playsInline autoPlay />
+                                        <video className="gallery__block-image" src={assetUrl(coverUrl)} muted loop playsInline autoPlay />
                                     </>
                                 ) : (
                                     <>
-                                        <img className="gallery__block-image-bg" src={coverUrl} alt="" aria-hidden="true" />
-                                        <img className="gallery__block-image" src={coverUrl} alt={item.title} loading="lazy" />
+                                        <img className="gallery__block-image-bg" src={assetUrl(coverUrl)} alt="" aria-hidden="true" />
+                                        <img className="gallery__block-image" src={assetUrl(coverUrl)} alt={item.title} loading="lazy" />
                                     </>
                                 )}
                                 {item.images && item.images.length > 1 && (
