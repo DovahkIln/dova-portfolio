@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import "./Header.css";
 
 const NAV_LINKS = [
-    { label: "Início", href: "#hero" },
-    { label: "Trabalhos", href: "#gallery" },
-    { label: "Sobre", href: "#about" },
-    { label: "Contato", href: "#contact" },
+    { label: "Home", href: "#hero" },
+    { label: "Projects", href: "#gallery" },
+    { label: "About", href: "#about" },
+    { label: "Contact", href: "#contact" },
 ];
 
 export default function Header() {
@@ -43,7 +43,7 @@ export default function Header() {
                 <button
                     className={`header__mobile-toggle ${menuOpen ? "open" : ""}`}
                     onClick={() => setMenuOpen(!menuOpen)}
-                    aria-label="Abrir menu"
+                    aria-label="Open menu"
                 >
                     <span />
                     <span />

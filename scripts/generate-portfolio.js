@@ -5,10 +5,10 @@ const basePath = path.join(process.cwd(), 'public', 'img_port');
 const outputPath = path.join(process.cwd(), 'src', 'data', 'portfolioData.js');
 
 function generatePortfolio() {
-    console.log('Escanenando diretórios de projetos em public/img_port...');
+    console.log('Scanning project directories in public/img_port...');
 
     if (!fs.existsSync(basePath)) {
-        console.error(`O diretório base não existe: ${basePath}`);
+        console.error(`Base directory does not exist: ${basePath}`);
         return;
     }
 
@@ -123,7 +123,7 @@ function generatePortfolio() {
 
     // Coleta as tags únicas
     const allTags = new Set(projects.map(p => p.tag));
-    const sortedTags = ["Todos", ...Array.from(allTags).sort()];
+    const sortedTags = ["All", ...Array.from(allTags).sort()];
 
     // Salva arquivo JSON na pasta public para o React fazer fetch em runtime
     const publicJsonPath = path.join(process.cwd(), 'public', 'portfolio.json');
@@ -132,7 +132,7 @@ function generatePortfolio() {
         tags: sortedTags
     };
     fs.writeFileSync(publicJsonPath, JSON.stringify(jsonOutput, null, 2), 'utf-8');
-    console.log(`Sucesso: portfólio de ${projects.length} projetos salvo em public/portfolio.json para consumo dinâmico.`);
+    console.log(`Success: portfolio of ${projects.length} projects saved in public/portfolio.json for dynamic consumption.`);
 }
 
 generatePortfolio();

@@ -6,21 +6,21 @@ export default function Footer() {
             <div className="container footer__inner">
                 <div className="footer__contact">
                     <h2>
-                        Vamos criar algo{" "}
+                        Let's create something{" "}
                         <span className="section-title" style={{ display: "inline" }}>
-                            incrível
+                            awesome
                         </span>
                         ?
                     </h2>
                     <p>
-                        Estou disponível para projetos freelance, colaborações e comissões
-                        de animação ou modelagem 3D.
+                        I am available for freelance projects, collaborations, and animation
+                        or 3D modeling commissions.
                     </p>
                     <a
                         href="mailto:lucasbpoletto@hotmail.com"
                         className="footer__contact-cta"
                     >
-                        ✉ Enviar Email
+                        ✉ Send Email
                     </a>
                 </div>
 
@@ -73,7 +73,7 @@ export default function Footer() {
                 <div className="footer__divider" />
 
                 <p className="footer__bottom">
-                    © {new Date().getFullYear()} Dova 3D — Todos os direitos reservados.
+                    © {new Date().getFullYear()} Dova 3D — All rights reserved.
                 </p>
             </div>
         </footer>

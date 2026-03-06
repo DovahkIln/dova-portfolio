@@ -9,25 +9,25 @@ export default function Hero() {
             <div className="hero__content">
                 <div className="hero__badge">
                     <span className="hero__badge-dot" />
-                    Disponível para freelance
+                    Available for freelance
                 </div>
 
                 <h1 className="hero__title">
-                    Criando mundos em{" "}
+                    Creating worlds in{" "}
                     <span className="hero__title-gradient">3D</span>
                 </h1>
 
                 <p className="hero__subtitle">
-                    Modelagem 3D, cenários, personagens e objetos com atenção a cada
-                    detalhe. Transformo ideias em renders que impressionam.
+                    3D modeling, environments, characters, and objects with attention to
+                    every detail. I turn ideas into stunning renders.
                 </p>
 
                 <div className="hero__cta-group">
                     <a href="#gallery" className="hero__cta hero__cta--primary">
-                        Ver Trabalhos ↓
+                        View Work ↓
                     </a>
                     <a href="#contact" className="hero__cta hero__cta--secondary">
-                        Entrar em Contato
+                        Get in Touch
                     </a>
                 </div>
             </div>

@@ -55,15 +55,15 @@ export default function ImageModal({ item, onClose }) {
                 </span>
 
                 <div className="modal-media-wrapper">
-                    <button className="modal-close" onClick={onClose} aria-label="Fechar">
+                    <button className="modal-close" onClick={onClose} aria-label="Close">
                         ✕
                     </button>
                     {allMedia.length > 1 && (
                         <>
-                            <button className="modal-nav modal-nav--prev" onClick={goPrev} aria-label="Anterior">
+                            <button className="modal-nav modal-nav--prev" onClick={goPrev} aria-label="Previous">
                                 <span>‹</span>
                             </button>
-                            <button className="modal-nav modal-nav--next" onClick={goNext} aria-label="Próximo">
+                            <button className="modal-nav modal-nav--next" onClick={goNext} aria-label="Next">
                                 <span>›</span>
                             </button>
                         </>
@@ -107,7 +107,7 @@ export default function ImageModal({ item, onClose }) {
                                 key={i}
                                 className={`modal-thumb ${i === currentIndex ? "active" : ""}`}
                                 src={assetUrl(media.type === "video" ? item.images[0] : media.src)}
-                                alt={`Miniatura ${i + 1}`}
+                                alt={`Thumbnail ${i + 1}`}
                                 onClick={() => setCurrentIndex(i)}
                             />
                         ))}

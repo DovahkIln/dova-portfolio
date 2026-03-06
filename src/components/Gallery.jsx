@@ -14,9 +14,9 @@ const assetUrl = (path) => {
 
 export default function Gallery({ onOpenModal }) {
     const [portfolioData, setPortfolioData] = useState([]);
-    const [tags, setTags] = useState(["Todos"]);
+    const [tags, setTags] = useState(["All"]);
 
-    const [activeTag, setActiveTag] = useState("Todos");
+    const [activeTag, setActiveTag] = useState("All");
     const [isLoading, setIsLoading] = useState(true);
     const [visibleCount, setVisibleCount] = useState(4); // Quantity to load initially
     const [isAutoLoadEnabled, setIsAutoLoadEnabled] = useState(true); // Control flow
@@ -28,7 +28,7 @@ export default function Gallery({ onOpenModal }) {
 
                 const data = await response.json();
                 setPortfolioData(data.items || []);
-                setTags(data.tags || ["Todos"]);
+                setTags(data.tags || ["All"]);
             } catch (err) {
                 console.error("Error loading portfolio:", err);
             } finally {
@@ -41,7 +41,7 @@ export default function Gallery({ onOpenModal }) {
 
     // 2. Filter data
     const filtered = useMemo(() => {
-        if (activeTag === "Todos") return portfolioData;
+        if (activeTag === "All") return portfolioData;
         return portfolioData.filter((item) => item.tag === activeTag);
     }, [activeTag, portfolioData]);
 
@@ -138,7 +138,7 @@ export default function Gallery({ onOpenModal }) {
             <section className="gallery" id="gallery">
                 <div className="container gallery__loading">
                     <span className="gallery__spinner"></span>
-                    <p>Carregando projetos...</p>
+                    <p>Loading projects...</p>
                 </div>
             </section>
         );
@@ -147,9 +147,9 @@ export default function Gallery({ onOpenModal }) {
     return (
         <section className="gallery" id="gallery">
             <div className="container gallery__header">
-                <h2 className="section-title">Trabalhos</h2>
+                <h2 className="section-title">Projects</h2>
                 <p className="section-subtitle">
-                    Uma seleção dos meus melhores projetos de modelagem 3D, renders e cenários.
+                    A selection of my best 3D modeling projects, renders, and environments.
                 </p>
 
                 <div className="gallery__filters">
@@ -204,10 +204,10 @@ export default function Gallery({ onOpenModal }) {
                                     </>
                                 )}
                                 {item.images && item.images.length > 1 && (
-                                    <span className="gallery__block-count">+{item.images.length - 1} fotos</span>
+                                    <span className="gallery__block-count">+{item.images.length - 1} photos</span>
                                 )}
                                 <div className="gallery__block-image-overlay">
-                                    <span className="gallery__block-view-btn">Ver Detalhes</span>
+                                    <span className="gallery__block-view-btn">View Details</span>
                                 </div>
                             </div>
 
@@ -230,14 +230,14 @@ export default function Gallery({ onOpenModal }) {
                     {isAutoLoadEnabled ? (
                         <>
                             <span className="gallery__spinner"></span>
-                            <p className="gallery__load-more-count" style={{ marginTop: '1rem' }}>Carregando mais projetos...</p>
+                            <p className="gallery__load-more-count" style={{ marginTop: '1rem' }}>Loading more projects...</p>
                         </>
                     ) : (
                         <>
                             <button className="gallery__load-more-btn" onClick={handleLoadMore}>
-                                Carregar Mais
+                                Load More
                             </button>
-                            <p className="gallery__load-more-count" style={{ marginTop: '0.5rem' }}>Exibindo {visibleItems.length} de {filtered.length}</p>
+                            <p className="gallery__load-more-count" style={{ marginTop: '0.5rem' }}>Showing {visibleItems.length} of {filtered.length}</p>
                         </>
                     )}
                 </div>
@@ -245,7 +245,7 @@ export default function Gallery({ onOpenModal }) {
 
             {filtered.length === 0 && (
                 <div className="container gallery__empty">
-                    <p>Nenhum projeto encontrado nesta categoria.</p>
+                    <p>No projects found in this category.</p>
                 </div>
             )}
         </section>

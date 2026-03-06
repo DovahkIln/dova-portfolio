@@ -7,5 +7,5 @@ export default defineConfig({
   server: {
     allowedHosts: ['0.tcp.sa.ngrok.io']
   },
-  base: '/dova-portifolio/'
+  base: '/dova-portfolio/'
 })

@@ -1,7 +1,7 @@
 {
   "title": "Glass Cups",
-  "tag": "Objetos",
-  "description": "Copos de vidro com refração e transparência.",
+  "tag": "Objects",
+  "description": "Glass cups with refraction and transparency.",
   "coverImage": "GlassCups2.png",
   "priority": 1000
 }

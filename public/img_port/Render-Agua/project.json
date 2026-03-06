@@ -1,7 +1,7 @@
 {
-  "title": "Render Agua",
-  "tag": "Cenários",
-  "description": "Cena com simulação realista de água.",
+  "title": "Water Render",
+  "tag": "Environments",
+  "description": "Scene with realistic water simulation.",
   "coverImage": "",
   "priority": 1000
 }
