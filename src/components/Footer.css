@@ -30,6 +30,7 @@
     color: var(--color-text-secondary);
     margin-bottom: var(--space-xl);
     max-width: 500px;
+    margin-inline: auto;
 }
 
 .footer__contact-cta {
